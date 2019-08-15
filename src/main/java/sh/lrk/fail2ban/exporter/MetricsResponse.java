@@ -2,10 +2,10 @@ package sh.lrk.fail2ban.exporter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sh.lrk.yahst.IResponse;
-import sh.lrk.yahst.Request;
-import sh.lrk.yahst.Response;
-import sh.lrk.yahst.Status;
+import sh.lrk.yahs.IResponse;
+import sh.lrk.yahs.Request;
+import sh.lrk.yahs.Response;
+import sh.lrk.yahs.Status;
 
 import java.io.BufferedReader;
 import java.io.IOException;

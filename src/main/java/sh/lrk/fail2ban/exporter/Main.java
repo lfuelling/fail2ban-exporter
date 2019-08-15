@@ -2,7 +2,7 @@ package sh.lrk.fail2ban.exporter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sh.lrk.yahst.*;
+import sh.lrk.yahs.*;
 
 public class Main {
 
