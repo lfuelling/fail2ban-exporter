@@ -44,7 +44,7 @@ public class MetricsResponse implements IResponse {
             List<String> jails = getJails();
 
             metrics.add(new Metric<>("fail2ban_failed_current", "Number of currently failed connections.", "gauge", "jail", jails, this::getCurrentlyFailed));
-            metrics.add(new Metric<>("fail2ban_failed_current", "Total number of failed connections.", "gauge", "jail", jails, this::getTotalFailed));
+            metrics.add(new Metric<>("fail2ban_failed_total", "Total number of failed connections.", "gauge", "jail", jails, this::getTotalFailed));
             metrics.add(new Metric<>("fail2ban_banned_current", "Number of currently banned IP addresses.", "gauge", "jail", jails, this::getCurrentlyBanned));
             metrics.add(new Metric<>("fail2ban_banned_total", "Total number of banned IP addresses.", "gauge", "jail", jails, this::getTotalBanned));
         } catch (IOException | InterruptedException e) {
