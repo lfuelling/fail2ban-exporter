@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import sh.lrk.yahst.IResponse;
 import sh.lrk.yahst.Request;
 import sh.lrk.yahst.Response;
+import sh.lrk.yahst.Status;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,7 +29,6 @@ public class MetricsResponse implements IResponse {
     private static final Pattern totalBannedPattern = Pattern.compile(".+(Total banned:)\\s+(\\d*)");
     private final Config config;
 
-    private long startTime;
     private boolean scrapeError = false;
 
     MetricsResponse(Config config) {
@@ -37,7 +37,7 @@ public class MetricsResponse implements IResponse {
 
     @Override
     public Response getResponse(Request req) {
-        startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         log.info("Starting scrape...");
         ArrayList<Metric> metrics = new ArrayList<>();
         try {
@@ -56,7 +56,7 @@ public class MetricsResponse implements IResponse {
 
         StringBuilder responseBuilder = new StringBuilder();
         metrics.forEach(metric -> responseBuilder.append(metric.toString()));
-        return new Response(responseBuilder.toString(), Response.Status.OK);
+        return new Response(responseBuilder.toString(), Status.OK);
     }
 
     private List<String> getJails() throws IOException, InterruptedException {

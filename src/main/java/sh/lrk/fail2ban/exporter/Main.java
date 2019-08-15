@@ -2,10 +2,7 @@ package sh.lrk.fail2ban.exporter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sh.lrk.yahst.Method;
-import sh.lrk.yahst.Response;
-import sh.lrk.yahst.Routes;
-import sh.lrk.yahst.Server;
+import sh.lrk.yahst.*;
 
 public class Main {
 
@@ -25,7 +22,7 @@ public class Main {
         Routes routes = new Routes();
         if (!config.getMetricsPath().equals("/")) {
             // add index route if necessary
-            routes.add(Method.GET, "/", req -> new Response(getIndexBody(), Response.Status.OK));
+            routes.add(Method.GET, "/", req -> new Response(getIndexBody(), Status.OK, ContentType.TEXT_HTML));
         }
         routes.add(Method.GET, config.getMetricsPath(), new MetricsResponse(config));
 
