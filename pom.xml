@@ -72,7 +72,7 @@
         <dependency>
             <groupId>sh.lrk</groupId>
             <artifactId>yahs</artifactId>
-            <version>1.0.4</version>
+            <version>1.0.12</version>
         </dependency>
     </dependencies>
     <repositories>
